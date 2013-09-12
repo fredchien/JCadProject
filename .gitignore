@@ -4,10 +4,10 @@
 #/web-app/WEB-INF
 
 # IDE support files
-#/.classpath
-/.launch
-#/.project
-#/.settings
+/.classpath
+.launch
+/.project
+/.settings
 /*.launch
 /*.tmproj
 /ivy*
@@ -17,7 +17,7 @@
 /prodDb.*
 
 # general HSQL database files
-#*Db.properties
+*Db.properties
 *Db.script
 
 # logs
@@ -37,7 +37,7 @@
 
 # "temporary" build files
 /target
-/target-eclipse
+/target-eclipse/*.*
 
 # other
 *.iws

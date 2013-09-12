@@ -5,14 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 import br.cad.model.ModelEntity;
 import br.cad.model.pessoa.Docente;
 
+@Entity
+@Table(name = "Disciplina")
 public class Disciplina extends ModelEntity implements Serializable {
 
 	/**
@@ -53,7 +57,7 @@ public class Disciplina extends ModelEntity implements Serializable {
 		this.cargaHoraria = cargaHoraria;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "DocenteDisciplina",
 			joinColumns = { @JoinColumn(name = "disciplina", referencedColumnName = "id") },
 			inverseJoinColumns = { @JoinColumn(name = "docente", referencedColumnName = "id") })
