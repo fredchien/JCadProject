@@ -38,7 +38,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<value>com.csc.model</value>
+				<value>br.cad.model</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -58,8 +58,8 @@
 	<tx:annotation-driven transaction-manager="txManager" />
 
 
-	<context:component-scan base-package="com.csc.dao.hibernate" />
-	<context:component-scan base-package="com.csc.service.impl" />
+	<context:component-scan base-package="br.cad.dao.hibernate" />
+	<context:component-scan base-package="br.cad.service.impl" />
 	
 	<bean id="hibernateConfiguration" factory-bean="&amp;sessionFactory" factory-method="getConfiguration" />
 

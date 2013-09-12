@@ -1,33 +1,24 @@
-package br.cad.model.pessoa;
+package br.cad.model.academico;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import br.cad.model.ModelEntity;
-import br.cad.model.system.Usuario;
+import br.cad.model.pessoa.Aluno;
 
-/**
- * Classe responsavel pelo papel de cada pessoa tipo Aluno, professor e etc...
- * 
- * @author WilliamRodrigues <br>
- *         william.rodrigues@live.fae.edu
- * 
- */
 @Entity
-@Table(name = "PessoaPapel")
-@Inheritance(strategy=InheritanceType.JOINED)
-public abstract class PessoaPapel extends ModelEntity implements Serializable {
+@Table(name = "Turma")
+public class Turma extends ModelEntity implements Serializable {
 
 	/**
 	 * 
@@ -39,14 +30,11 @@ public abstract class PessoaPapel extends ModelEntity implements Serializable {
 	 * ************************************************** Atributos ****************************************************
 	 * *****************************************************************************************************************
 	 */
-	
-	private String nomeCompleto;
-	private String nomeAbreviado;
-	
-	/**
-	 * Usuario do Sistema
-	 */
-	private Usuario usuario;
+
+	private String codigo;
+	private String Local;
+	private Disciplina disciplina;
+	private List<Aluno> alunos = new ArrayList<Aluno>();
 
 	/*
 	 * ******************************************************************************************************************
@@ -54,36 +42,41 @@ public abstract class PessoaPapel extends ModelEntity implements Serializable {
 	 * ******************************************************************************************************************
 	 */
 
-	@NotNull
-	@Column(length = 255)
-	@Size(min = 5, max = 255, message = "")
-	public String getNomeCompleto() {
-		return nomeCompleto;
+	@Column(length = 25)
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	
+	@Column(length = 100)
+	public String getLocal() {
+		return Local;
 	}
 
-	@Column(length = 75)
-	@Size(min = 3, max = 75, message = "")
-	public String getNomeAbreviado() {
-		return nomeAbreviado;
+	public void setLocal(String local) {
+		Local = local;
 	}
 
-	public void setNomeAbreviado(String nomeAbreviado) {
-		this.nomeAbreviado = nomeAbreviado;
-	}
-
-	@JoinColumn(name = "usuario")
-	@NotNull(message = "Usuário deve ser preenchido")
+	@JoinColumn(name = "disciplina")
+	@NotNull(message = "Disciplina deve ser preenchida")
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public Usuario getUsuario() {
-		return usuario;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 
 	/*
@@ -91,4 +84,5 @@ public abstract class PessoaPapel extends ModelEntity implements Serializable {
 	 * ***************************************************** Metodos *****************************************************
 	 * *******************************************************************************************************************
 	 */
+
 }
