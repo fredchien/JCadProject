@@ -1,18 +1,21 @@
 package br.cad.model.academico;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 import br.cad.model.ModelEntity;
 
 @Entity
-@Table(name = "Grade")
-public class Grade extends ModelEntity implements Serializable {
+@Table(name = "LocalAula")
+public class LocalAula extends ModelEntity implements Serializable {
 
 	/**
 	 * 
@@ -24,23 +27,50 @@ public class Grade extends ModelEntity implements Serializable {
 	 * ************************************************** Atributos ****************************************************
 	 * *****************************************************************************************************************
 	 */
-	
-	private Date dataInicio;
-	private Date dataFinal;
-	private Date dataAtualizado;
-	private List<Aula> aulas = new ArrayList<Aula>();
+
+	private Integer capacidade;
+	private String descricao;
+	private TipoLocal tipoLocal;
 
 	/*
 	 * ******************************************************************************************************************
 	 * **************************************************** Gets e Sets *************************************************
 	 * ******************************************************************************************************************
 	 */
-	
+
+	@Range(max = 5)
+	public Integer getCapacidade() {
+		return capacidade;
+	}
+
+	public void setCapacidade(Integer capacidade) {
+		this.capacidade = capacidade;
+	}
+
+	@Column(length = 25)
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@NotNull
+	@Column(length = 25)
+	@Enumerated(EnumType.STRING)
+	public TipoLocal getTipoLocal() {
+		return tipoLocal;
+	}
+
+	public void setTipoLocal(TipoLocal tipoLocal) {
+		this.tipoLocal = tipoLocal;
+	}
+
 	/*
 	 * *******************************************************************************************************************
 	 * ***************************************************** Metodos *****************************************************
 	 * *******************************************************************************************************************
 	 */
-	
-	
+
 }

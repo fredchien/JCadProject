@@ -1,29 +1,20 @@
 package br.cad.model.academico;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Range;
-
 import br.cad.model.ModelEntity;
-import br.cad.model.pessoa.Aluno;
-import br.cad.model.pessoa.Docente;
 
 @Entity
-@Table(name = "Turma")
-public class Turma extends ModelEntity implements Serializable {
+@Table(name = "Ementa")
+public class Ementa extends ModelEntity implements Serializable {
 
 	/**
 	 * 
@@ -36,12 +27,9 @@ public class Turma extends ModelEntity implements Serializable {
 	 * *****************************************************************************************************************
 	 */
 
-	private String codigo;
-	private String Local;
-	private Integer horasAula;
+	private String arquivo;
 	private Disciplina disciplina;
-	private Docente docente;
-	private List<Aluno> alunos = new ArrayList<Aluno>();
+	private MatrizCurricular matrizCurricular;
 
 	/*
 	 * ******************************************************************************************************************
@@ -49,46 +37,16 @@ public class Turma extends ModelEntity implements Serializable {
 	 * ******************************************************************************************************************
 	 */
 
-	@Column(length = 25)
-	public String getCodigo() {
-		return codigo;
+	public String getArquivo() {
+		return arquivo;
 	}
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-	
-	@Column(length = 100)
-	public String getLocal() {
-		return Local;
-	}
-
-	public void setLocal(String local) {
-		Local = local;
-	}
-
-	@Range(max = 5)
-	public Integer getHorasAula() {
-		return horasAula;
-	}
-
-	public void setHorasAula(Integer horasAula) {
-		this.horasAula = horasAula;
-	}
-
-	@JoinColumn(name = "docente")
-	@NotNull(message = "Docente deve ser informado.")
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public Docente getDocente() {
-		return docente;
-	}
-
-	public void setDocente(Docente docente) {
-		this.docente = docente;
+	public void setArquivo(String arquivo) {
+		this.arquivo = arquivo;
 	}
 
 	@JoinColumn(name = "disciplina")
-	@NotNull(message = "Disciplina deve ser preenchida")
+	@NotNull(message = "Disciplina requerida.")
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public Disciplina getDisciplina() {
 		return disciplina;
@@ -98,16 +56,15 @@ public class Turma extends ModelEntity implements Serializable {
 		this.disciplina = disciplina;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "TurmaAluno",
-	joinColumns = { @JoinColumn(name = "turma", referencedColumnName = "id") },
-	inverseJoinColumns = { @JoinColumn(name = "aluno", referencedColumnName = "id") })
-	public List<Aluno> getAlunos() {
-		return alunos;
+	@JoinColumn(name = "matrizCurricular")
+	@NotNull(message = "Matriz Curricular requerida.")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	public MatrizCurricular getMatrizCurricular() {
+		return matrizCurricular;
 	}
 
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
+	public void setMatrizCurricular(MatrizCurricular matrizCurricular) {
+		this.matrizCurricular = matrizCurricular;
 	}
 
 	/*

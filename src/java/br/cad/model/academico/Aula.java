@@ -1,9 +1,7 @@
 package br.cad.model.academico;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,8 +9,8 @@ import javax.persistence.Table;
 import br.cad.model.ModelEntity;
 
 @Entity
-@Table(name = "Grade")
-public class Grade extends ModelEntity implements Serializable {
+@Table(name = "Aula")
+public class Aula extends ModelEntity implements Serializable {
 
 	/**
 	 * 
@@ -28,7 +26,7 @@ public class Grade extends ModelEntity implements Serializable {
 	private Date dataInicio;
 	private Date dataFinal;
 	private Date dataAtualizado;
-	private List<Aula> aulas = new ArrayList<Aula>();
+	private LocalAula localAula;
 
 	/*
 	 * ******************************************************************************************************************
@@ -41,6 +39,5 @@ public class Grade extends ModelEntity implements Serializable {
 	 * ***************************************************** Metodos *****************************************************
 	 * *******************************************************************************************************************
 	 */
-	
-	
+
 }
