@@ -9,46 +9,45 @@ import java.util.Date;
 
 import utils.DateDiffUtil.Units;
 
-
 public class DataSistema {
 	private static final SimpleDateFormat dataPattern = new SimpleDateFormat("dd/MM/yyyy");
 	private static final SimpleDateFormat dataTimePattern = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
 	/**
 	 * Compara a data de aniversario com a data atual, verificando com margem de diasPos para frente
+	 * 
 	 * @param dtNasc
 	 * @param diasPos
 	 * @return
 	 */
 	@SuppressWarnings("deprecation")
 	static public boolean compareAniversario(Date dtNasc, int diasPos) {
-		if(dtNasc==null)
+		if (dtNasc == null)
 			return false;
-		
+
 		Date dataAtual = new Date();
-		
+
 		Date dtNascN = new Date(dtNasc.getTime());
 		dtNascN.setYear(dataAtual.getYear());
-		
+
 		long diff = DateDiffUtil.dateDiff(dtNascN, dataAtual, Units.DAY);
-		return (diff>=0 && diff<=diasPos);
+		return (diff >= 0 && diff <= diasPos);
 	}
-	
-	
+
 	@SuppressWarnings("deprecation")
 	static public boolean compareDDMMYYYY(Date d1, Date d2) {
-		if(d1==null || d2==null)
+		if (d1 == null || d2 == null)
 			return false;
-		
-		if(d1.getDay()!=d2.getDay())
+
+		if (d1.getDay() != d2.getDay())
 			return false;
-		if(d1.getMonth()!=d2.getMonth())
+		if (d1.getMonth() != d2.getMonth())
 			return false;
-		if(d1.getYear()!=d2.getYear())
+		if (d1.getYear() != d2.getYear())
 			return false;
 		return true;
 	}
-	
+
 	static public Date getDate(String dateDDMMYYYY) {
 		try {
 			return new SimpleDateFormat("dd/MM/yyyy").parse(dateDDMMYYYY);
@@ -64,6 +63,7 @@ public class DataSistema {
 	static public String getDataTimeCorrenteDDMMYYYYHHMM() {
 		return dataTimePattern.format(new Date());
 	}
+
 	static public String getDataCorrenteDDMMYYYY() {
 		Date dt = new Date();
 		SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
@@ -266,29 +266,29 @@ public class DataSistema {
 		}
 		return date;
 	}
-	
+
 	/**
-	 * Converte um Long para uma String no formato de minutos mm:ss. 
+	 * Converte um Long para uma String no formato de minutos mm:ss.
 	 * 
 	 * @param minutos
 	 *            Long com os minutos a ser formatado
 	 * @return String formatada mm:ss
 	 */
-	public static String segundoToMinuto(Long segundos){
+	public static String segundoToMinuto(Long segundos) {
 		String saida;
-		if(segundos>0){
+		if (segundos > 0) {
 			Long divisao = segundos / 60;
-			Long resto = segundos % 60; 
+			Long resto = segundos % 60;
 			saida = divisao + ":";
-			if(resto > 0){
+			if (resto > 0) {
 				saida = saida + resto;
-			}else{
+			} else {
 				saida = saida + "00";
 			}
-		}else{
+		} else {
 			saida = "0:00";
 		}
 		return saida;
 	}
-	
+
 }
