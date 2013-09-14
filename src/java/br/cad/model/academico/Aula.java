@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 
 import utils.DataSistema;
 import br.cad.model.ModelEntity;
-import Docente;
+import br.cad.model.pessoa.Docente;
 
 @Entity
 @Table(name = "Aula")
@@ -26,9 +26,10 @@ public class Aula extends ModelEntity implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-private Date dataAtualizado;
+	private Date dataAtualizado;
 
 	private LocalAula localAula;
+	private Docente docente;
 	private Disciplina disciplina;
 	private List<HoraAula> horaAulas = new ArrayList<HoraAula>();
 
@@ -38,7 +39,7 @@ private Date dataAtualizado;
 	 * *****************************************************************************************************************
 	 */
 
-	public Aula(LocalAula localAula, Disciplina disciplina, String/*No type specified*/ docente) {
+	public Aula(LocalAula localAula, Disciplina disciplina, Docente docente) {
 		super();
 
 		this.dataAtualizado = DataSistema.getDataCorrenteTimestamp();
@@ -58,14 +59,14 @@ private Date dataAtualizado;
 	 * **************************************************** Gets e Sets *************************************************
 	 * ******************************************************************************************************************
 	 */
-public Date getDataAtualizado() {
-   return this.dataAtualizado;
-}
+	
+	public Date getDataAtualizado() {
+		return this.dataAtualizado;
+	}
 
-public void setDataAtualizado(Date value) {
-this.dataAtualizado = value;
-}
-
+	public void setDataAtualizado(Date value) {
+		this.dataAtualizado = value;
+	}
 
 	@JoinColumn(name = "localAula")
 	@NotNull(message = "Local da Aula requerido.")
@@ -76,6 +77,17 @@ this.dataAtualizado = value;
 
 	public void setLocalAula(LocalAula localAula) {
 		this.localAula = localAula;
+	}
+
+	@JoinColumn(name = "docente")
+	@NotNull(message = "Docente requerido.")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	public Docente getDocente() {
+		return docente;
+	}
+
+	public void setDocente(Docente docente) {
+		this.docente = docente;
 	}
 
 	@JoinColumn(name = "disciplina")
@@ -123,7 +135,7 @@ this.dataAtualizado = value;
 	 * @return
 	 */
 	public List<Aula> gerarAulas(Integer duracaoHoraAula, Date dtInicio, Date dtFim, Date hrAulaInicio, Date hrAulaFim, Integer diaSemana, LocalAula localAula, Disciplina disciplina,
-			String/*No type specified*/ docente) {
+			Docente docente) {
 
 		return new ArrayList<Aula>();
 	}
