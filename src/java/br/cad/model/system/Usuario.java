@@ -13,7 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -23,7 +22,6 @@ import br.cad.model.ModelEntity;
 /**
  * 
  * @author WilliamRodrigues
- * 
  */
 
 @Entity
@@ -43,7 +41,7 @@ public class Usuario extends ModelEntity implements Serializable {
 	private String userName;
 	private String edEmail;
 	private String senha;
-	private Character ativo;
+	private Integer ativo;
 	private List<Grupo> grupos = new ArrayList<Grupo>();
 
 	/*
@@ -106,12 +104,12 @@ public class Usuario extends ModelEntity implements Serializable {
 		return null;
 	}
 
-	@Valid
-	public Character getAtivo() {
+	@NotNull
+	public Integer getAtivo() {
 		return ativo;
 	}
 
-	public void setAtivo(Character ativo) {
+	public void setAtivo(Integer ativo) {
 		this.ativo = ativo;
 	}
 
