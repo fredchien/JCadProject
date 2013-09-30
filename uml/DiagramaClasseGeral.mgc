@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="br.cad.model.pessoa.PessoaPapel" x="832" y="299">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="br.cad.model.system.Usuario"
+            endpointName="usuario" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.Nota" x="519" y="393">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="br.cad.model.academico.Disciplina"
+            endpointName="disciplina" kind="Simple"/>
+        <Association destinationClassName="br.cad.model.pessoa.Aluno"
+            endpointName="aluno" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.pessoa.Aluno" x="374" y="551">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="br.cad.model.pessoa.PessoaPapel"/>
+    </Class>
+    <Class name="br.cad.model.academico.Disciplina" x="517" y="259">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="br.cad.model.pessoa.Docente"
+            endpointName="docentesAptos" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.MatrizCurricular" x="72" y="359">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="br.cad.model.academico.Curso"
+            endpointName="curso" kind="Simple"/>
+        <Association
+            destinationClassName="br.cad.model.academico.TipoPeriodo"
+            endpointName="tipoPeriodo" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.Chamada" x="840" y="561">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="br.cad.model.pessoa.Aluno"
+            endpointName="aluno" kind="Simple"/>
+        <Association destinationClassName="br.cad.model.academico.Aula"
+            endpointName="aula" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.Grade" x="984" y="7">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="br.cad.model.academico.Aula"
+            endpointName="aulas" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.pessoa.Docente" x="743" y="57">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="br.cad.model.pessoa.PessoaPapel"/>
+        <Association
+            destinationClassName="br.cad.model.academico.Disciplina"
+            endpointName="disciplinasAptas" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.Curso" x="186" y="177">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="br.cad.model.academico.Disciplina"
+            endpointName="disciplinas" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.Ementa" x="55" y="18">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="br.cad.model.academico.Disciplina"
+            endpointName="disciplina" kind="Simple"/>
+        <Association
+            destinationClassName="br.cad.model.academico.MatrizCurricular"
+            endpointName="matrizCurricular" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.TipoPeriodo" x="202" y="455">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="br.cad.model.pessoa.Administrador" x="737" y="482">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="br.cad.model.pessoa.PessoaPapel"/>
+    </Class>
+    <Class name="br.cad.model.academico.PlanoEstudo" x="356" y="22">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="br.cad.model.academico.Grade"
+            endpointName="grade" kind="Simple"/>
+        <Association destinationClassName="br.cad.model.academico.Turma"
+            endpointName="turmas" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.Turma" x="210" y="308">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="br.cad.model.academico.Disciplina"
+            endpointName="disciplina" kind="Simple"/>
+        <Association destinationClassName="br.cad.model.pessoa.Aluno"
+            endpointName="alunos" kind="Simple"/>
+        <Association destinationClassName="br.cad.model.pessoa.Docente"
+            endpointName="docente" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.HoraAula" x="1153" y="18">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="br.cad.model.academico.Aula"
+            endpointName="aula" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.Aula" x="890" y="194">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="br.cad.model.academico.Disciplina"
+            endpointName="disciplina" kind="Simple"/>
+        <Association
+            destinationClassName="br.cad.model.academico.HoraAula"
+            endpointName="horaAulas" kind="Simple">
+            <Point x="1277" y="193"/>
+        </Association>
+        <Association
+            destinationClassName="br.cad.model.academico.LocalAula"
+            endpointName="localAula" kind="Simple"/>
+        <Association destinationClassName="br.cad.model.pessoa.Docente"
+            endpointName="docente" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.academico.TipoLocal" x="1296" y="476">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="br.cad.model.academico.LocalAula" x="1285" y="331">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="br.cad.model.academico.TipoLocal"
+            endpointName="tipoLocal" kind="Simple"/>
+    </Class>
+    <Class name="br.cad.model.system.Usuario" x="1074" y="390">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+</ClassDiagram>
