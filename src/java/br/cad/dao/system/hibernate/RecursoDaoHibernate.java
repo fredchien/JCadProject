@@ -24,7 +24,7 @@ public class RecursoDaoHibernate extends AbstractDaoHibernate<Recurso> implement
 	 */
 	
 	public RecursoDaoHibernate() {
-		this.setEdPackageModel("com.gns.model.cda.");
+		this.setEdPackageModel("br.cad.model.system.");
 	}
 	
 	/*

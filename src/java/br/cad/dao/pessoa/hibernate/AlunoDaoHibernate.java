@@ -1,21 +1,18 @@
-package br.cad.dao.system.hibernate;
-
-import java.util.List;
+package br.cad.dao.pessoa.hibernate;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import br.cad.dao.hibernate.AbstractDaoHibernate;
-import br.cad.dao.system.AcaoDao;
-import br.cad.model.system.Acao;
+import br.cad.dao.pessoa.AlunoDao;
+import br.cad.model.pessoa.Aluno;
 
 /**
- * Implementação do AcaoDao em Hibernate
- * @author Will
+ * Implementação do AlunoDao em Hibernate
+ * @author WilliamRodrigues
  * @since 1.0
  */
-@Repository("acaoDao")
-public class AcaoDaoHibernate extends AbstractDaoHibernate<Acao> implements AcaoDao {
+@Repository("alunoDao")
+public class AlunoDaoHibernate extends AbstractDaoHibernate<Aluno> implements AlunoDao {
 
 	/* 
 	 ******************************************************************************************************************
@@ -23,8 +20,8 @@ public class AcaoDaoHibernate extends AbstractDaoHibernate<Acao> implements Acao
 	 ******************************************************************************************************************
 	 */
 	
-	public AcaoDaoHibernate() {
-		this.setEdPackageModel("br.cad.model.system.");
+	public AlunoDaoHibernate() {
+		this.setEdPackageModel("br.cad.model.pessoa.");
 	}
 	
 	/*
@@ -32,12 +29,4 @@ public class AcaoDaoHibernate extends AbstractDaoHibernate<Acao> implements Acao
 	 ****************************************************** Metodos *****************************************************
 	 ********************************************************************************************************************
 	 */
-	
-	@Transactional
-	@Override
-	public List<Acao> findAllUsuario(Long idUsuarioLogado) {
-		@SuppressWarnings("unchecked")
-		List<Acao> models = getSession().createQuery("Select DISTINCT a from Grupo g JOIN g.acoes a JOIN g.usuarios u WHERE u.id = " + idUsuarioLogado + " order by a.nmAcao").list();
-		return models;
-	}
 }

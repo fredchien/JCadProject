@@ -25,7 +25,7 @@ public class DominioDaoHibernate extends AbstractDaoHibernate<Dominio> implement
 	 */
 	
 	public DominioDaoHibernate() {
-		this.setEdPackageModel("com.gns.model.cda.");
+		this.setEdPackageModel("br.cad.model.system.");
 		this.setOrderFindAll("order by nmDominio");
 	}
 	

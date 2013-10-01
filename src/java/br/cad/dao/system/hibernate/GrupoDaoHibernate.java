@@ -21,7 +21,7 @@ public class GrupoDaoHibernate extends AbstractDaoHibernate<Grupo> implements Gr
 	 */
 	
 	public GrupoDaoHibernate() {
-		this.setEdPackageModel("com.gns.model.cda.");
+		this.setEdPackageModel("br.cad.model.system.");
 	}
 	
 	/*

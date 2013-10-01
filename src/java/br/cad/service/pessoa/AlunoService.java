@@ -1,22 +1,19 @@
-package br.cad.service.system;
+package br.cad.service.pessoa;
 
-import java.util.List;
-
-import br.cad.model.system.Acao;
+import br.cad.model.pessoa.Aluno;
 import br.cad.service.Service;
 
 /**
  * 
- * @author Will
+ * @author WilliamRodrigues
  *
  */
-public interface AcaoService extends Service<Acao> {
+public interface AlunoService extends Service<Aluno> {
 	
 	/*
 	 ********************************************************************************************************************
 	 ****************************************************** Metodos *****************************************************
 	 ********************************************************************************************************************
 	 */
-
-	public List<Acao> findAllUsuario(Long idUsuarioLogado);
+	public Aluno loginAluno(String usuario, String senha);
 }

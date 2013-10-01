@@ -25,7 +25,7 @@ public class UsuarioDaoHibernate extends AbstractDaoHibernate<Usuario> implement
 	 */
 	
 	public UsuarioDaoHibernate() {
-		this.setEdPackageModel("com.gns.model.cda.");
+		this.setEdPackageModel("br.cad.model.system.");
 	}
 	
 	/*
