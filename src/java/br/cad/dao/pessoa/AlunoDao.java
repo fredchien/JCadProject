@@ -2,6 +2,7 @@ package br.cad.dao.pessoa;
 
 import br.cad.dao.Dao;
 import br.cad.model.pessoa.Aluno;
+import br.cad.model.system.Usuario;
 
 /**
  * Definição de Dao de Aluno
@@ -16,4 +17,5 @@ public interface AlunoDao extends Dao<Aluno> {
 	 ************************************************* Metodos Abstratos ************************************************
 	 ********************************************************************************************************************
 	 */
+	public Aluno findByUsuario(Usuario usuario);
 }

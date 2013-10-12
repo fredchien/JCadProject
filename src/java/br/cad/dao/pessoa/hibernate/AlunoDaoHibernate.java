@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import br.cad.dao.hibernate.AbstractDaoHibernate;
 import br.cad.dao.pessoa.AlunoDao;
 import br.cad.model.pessoa.Aluno;
+import br.cad.model.system.Usuario;
 
 /**
  * Implementação do AlunoDao em Hibernate
@@ -29,4 +30,9 @@ public class AlunoDaoHibernate extends AbstractDaoHibernate<Aluno> implements Al
 	 ****************************************************** Metodos *****************************************************
 	 ********************************************************************************************************************
 	 */
+
+	@Override
+	public Aluno findByUsuario(Usuario usuario) {
+		return null;
+	}
 }
