@@ -1,11 +1,13 @@
 package br.cad.dao.pessoa.hibernate;
 
+import org.springframework.stereotype.Repository;
+
 import br.cad.dao.hibernate.AbstractDaoHibernate;
 import br.cad.dao.pessoa.DocenteDao;
 import br.cad.model.pessoa.Docente;
 
 /**
- * Implementação do AlunoDao em Hibernate
+ * Implementacao do AlunoDao em Hibernate
  * @author WilliamRodrigues
  * @since 1.0
  */
