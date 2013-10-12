@@ -3,18 +3,17 @@ package br.cad.dao.pessoa.hibernate;
 import org.springframework.stereotype.Repository;
 
 import br.cad.dao.hibernate.AbstractDaoHibernate;
-import br.cad.dao.pessoa.DocenteDao;
-import br.cad.model.pessoa.Aluno;
-import br.cad.model.pessoa.Docente;
+import br.cad.dao.pessoa.AdministradorDao;
+import br.cad.model.pessoa.Administrador;
 import br.cad.model.system.Usuario;
 
 /**
- * Implementacao do DocenteDao em Hibernate
+ * Implementação do AdministradorDao em Hibernate
  * @author WilliamRodrigues
  * @since 1.0
  */
-@Repository("docenteDao")
-public class DocenteDaoHibernate extends AbstractDaoHibernate<Docente> implements DocenteDao {
+@Repository("administradorDao")
+public class AdministradorDaoHibernate extends AbstractDaoHibernate<Administrador> implements AdministradorDao {
 
 	/* 
 	 ******************************************************************************************************************
@@ -22,19 +21,18 @@ public class DocenteDaoHibernate extends AbstractDaoHibernate<Docente> implement
 	 ******************************************************************************************************************
 	 */
 	
-	public DocenteDaoHibernate() {
+	public AdministradorDaoHibernate() {
 		this.setEdPackageModel("br.cad.model.pessoa.");
 	}
-
 	
 	/*
 	 ********************************************************************************************************************
 	 ****************************************************** Metodos *****************************************************
 	 ********************************************************************************************************************
 	 */
-	
+
 	@Override
-	public Aluno findByUsuario(Usuario usuario) {
+	public Administrador findByUsuario(Usuario usuario) {
 		return null;
 	}
 }
