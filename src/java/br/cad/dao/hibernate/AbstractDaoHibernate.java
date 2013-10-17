@@ -85,17 +85,33 @@ public abstract class AbstractDaoHibernate<MODEL extends Model> implements Dao<M
 		}
 	}
 
-	public void save(MODEL model) {
+	public Boolean save(MODEL model) {
 		// Salva o usuario
 		// Faz as operacao de update e insert
 		// update quando o objeto tem id
 		// insert quando o objeto nao tem id
-		this.getSession().saveOrUpdate(model);
+		try{
+			this.getSession().saveOrUpdate(model);
+			this.getSession().refresh(model);
+			return true;
+		}
+		catch(Exception exception){
+			exception.printStackTrace();
+			return false;
+		}		
 	}
 
-	public void remove(MODEL model) {
+	public Boolean remove(MODEL model) {
 		// Remove o usuario da base de dados
-		this.getSession().delete(model);
+		try{
+			this.getSession().delete(model);
+			
+			return true;
+		}
+		catch(Exception exception){
+			exception.printStackTrace();
+			return false;
+		}	
 	}
 
 	@SuppressWarnings("unchecked")

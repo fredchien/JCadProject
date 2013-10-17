@@ -38,12 +38,12 @@ public abstract class AbstractService<MODEL extends Model, DAO extends Dao<MODEL
 		return dao.getNewModel();
 	}
 
-	public void save(MODEL model) {
-		dao.save(model);
+	public Boolean save(MODEL model) {
+		return dao.save(model);
 	}
 
-	public void remove(MODEL model) {
-		dao.remove(model);
+	public Boolean remove(MODEL model) {
+		return dao.remove(model);
 	}
 
 	public List<MODEL> findAll() {

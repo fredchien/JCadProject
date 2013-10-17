@@ -30,13 +30,13 @@ public interface Dao<MODEL extends Model> {
 	 * 
 	 * @param model
 	 */
-	public void save(MODEL model);
+	public Boolean save(MODEL model);
 
 	/**
 	 * Remove o model
 	 * @param model
 	 */
-	public void remove(MODEL model);
+	public Boolean remove(MODEL model);
 	
 	/**
 	 * Busca todos os models

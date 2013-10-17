@@ -27,14 +27,14 @@ public interface Service<MODEL extends Model> {
 	 * @param model
 	 */
 	@Transactional(readOnly=false)
-	public void save(MODEL model);
+	public Boolean save(MODEL model);
 
 	/**
 	 * Remove o model
 	 * @param model
 	 */
 	@Transactional(readOnly=false)
-	public void remove(MODEL model);
+	public Boolean remove(MODEL model);
 	
 	/**
 	 * Busca todos os models
