@@ -1,8 +1,6 @@
 package br.cad.dao.pessoa;
 
-import br.cad.dao.Dao;
 import br.cad.model.pessoa.Administrador;
-import br.cad.model.system.Usuario;
 
 /**
  * Definição de Dao de Administrador
@@ -10,12 +8,13 @@ import br.cad.model.system.Usuario;
  * @author Will
  * @since 1.0
  */
-public interface AdministradorDao extends Dao<Administrador> {
+public interface AdministradorDao extends PessoaPapelDao<Administrador> {
 	
 	/*
 	 ********************************************************************************************************************
 	 ************************************************* Metodos Abstratos ************************************************
 	 ********************************************************************************************************************
 	 */
-	public Administrador findByUsuario(Usuario usuario);
+	
+	
 }

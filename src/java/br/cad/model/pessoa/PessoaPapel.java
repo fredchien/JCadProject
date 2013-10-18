@@ -42,6 +42,7 @@ public abstract class PessoaPapel extends ModelEntity implements Serializable {
 	
 	private String nomeCompleto;
 	private String nomeAbreviado;
+	private Boolean sitPessoa;
 	
 	/**
 	 * Usuario do Sistema
@@ -73,6 +74,15 @@ public abstract class PessoaPapel extends ModelEntity implements Serializable {
 
 	public void setNomeAbreviado(String nomeAbreviado) {
 		this.nomeAbreviado = nomeAbreviado;
+	}
+
+	@Column(columnDefinition = "int default 1")
+	public Boolean getSitPessoa() {
+		return sitPessoa;
+	}
+
+	public void setSitPessoa(Boolean sitPessoa) {
+		this.sitPessoa = sitPessoa;
 	}
 
 	@JoinColumn(name = "usuario")

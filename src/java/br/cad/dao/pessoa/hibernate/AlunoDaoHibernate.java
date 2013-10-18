@@ -2,37 +2,32 @@ package br.cad.dao.pessoa.hibernate;
 
 import org.springframework.stereotype.Repository;
 
-import br.cad.dao.hibernate.AbstractDaoHibernate;
 import br.cad.dao.pessoa.AlunoDao;
 import br.cad.model.pessoa.Aluno;
-import br.cad.model.system.Usuario;
 
 /**
  * Implementação do AlunoDao em Hibernate
- * @author WilliamRodrigues
+ * 
+ * @author WilliamRodrigues <br> {@link william.rodrigues@live.fae.edu}
  * @since 1.0
  */
 @Repository("alunoDao")
-public class AlunoDaoHibernate extends AbstractDaoHibernate<Aluno> implements AlunoDao {
+public class AlunoDaoHibernate extends PessoaPapelDaoHibernate<Aluno> implements AlunoDao {
 
-	/* 
-	 ******************************************************************************************************************
-	 ************************************************** Construtor ****************************************************
-	 ******************************************************************************************************************
+	/*
+	 * *****************************************************************************************************************
+	 * ************************************************* Construtor ****************************************************
+	 * *****************************************************************************************************************
 	 */
-	
+
 	public AlunoDaoHibernate() {
 		this.setEdPackageModel("br.cad.model.pessoa.");
 	}
-	
+
 	/*
-	 ********************************************************************************************************************
-	 ****************************************************** Metodos *****************************************************
-	 ********************************************************************************************************************
+	 * *******************************************************************************************************************
+	 * ***************************************************** Metodos *****************************************************
+	 * *******************************************************************************************************************
 	 */
 
-	@Override
-	public Aluno findByUsuario(Usuario usuario) {
-		return null;
-	}
 }

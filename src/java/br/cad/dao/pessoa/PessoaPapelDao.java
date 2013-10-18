@@ -1,20 +1,18 @@
 package br.cad.dao.pessoa;
 
-import br.cad.model.pessoa.Aluno;
+import br.cad.dao.Dao;
+import br.cad.model.pessoa.PessoaPapel;
+import br.cad.model.system.Usuario;
 
-/**
- * Definição de Dao de Aluno
- * 
- * @author Will
- * @since 1.0
- */
-public interface AlunoDao extends PessoaPapelDao<Aluno> {
-	
+public interface PessoaPapelDao<PESSOA extends PessoaPapel> extends Dao<PESSOA>{
+
 	/*
 	 ********************************************************************************************************************
 	 ************************************************* Metodos Abstratos ************************************************
 	 ********************************************************************************************************************
 	 */
 	
+	public PESSOA findByUsuario(Usuario usuario);
 	
+	public Boolean disablePeople(PESSOA pessoa);
 }

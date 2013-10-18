@@ -2,17 +2,19 @@ package br.cad.dao.pessoa.hibernate;
 
 import org.springframework.stereotype.Repository;
 
-import br.cad.dao.pessoa.AdministradorDao;
-import br.cad.model.pessoa.Administrador;
+import br.cad.dao.hibernate.AbstractDaoHibernate;
+import br.cad.dao.pessoa.PessoaPapelDao;
+import br.cad.model.pessoa.PessoaPapel;
+import br.cad.model.system.Usuario;
 
 /**
- * Implementação do AdministradorDao em Hibernate
+ * Implementacao do PessoaPapelDao em Hibernate
  * 
  * @author WilliamRodrigues <br> {@link william.rodrigues@live.fae.edu}
  * @since 1.0
  */
-@Repository("administradorDao")
-public class AdministradorDaoHibernate extends PessoaPapelDaoHibernate<Administrador> implements AdministradorDao {
+@Repository("pessoaPapelDao")
+public class PessoaPapelDaoHibernate<PESSOA extends PessoaPapel> extends AbstractDaoHibernate<PESSOA> implements PessoaPapelDao<PESSOA> {
 
 	/*
 	 * *****************************************************************************************************************
@@ -20,7 +22,7 @@ public class AdministradorDaoHibernate extends PessoaPapelDaoHibernate<Administr
 	 * *****************************************************************************************************************
 	 */
 
-	public AdministradorDaoHibernate() {
+	public PessoaPapelDaoHibernate() {
 		this.setEdPackageModel("br.cad.model.pessoa.");
 	}
 
@@ -30,4 +32,13 @@ public class AdministradorDaoHibernate extends PessoaPapelDaoHibernate<Administr
 	 * *******************************************************************************************************************
 	 */
 
+	@Override
+	public PESSOA findByUsuario(Usuario usuario) {
+		return null;
+	}
+
+	@Override
+	public Boolean disablePeople(PESSOA pessoa) {
+		return null;
+	}
 }
