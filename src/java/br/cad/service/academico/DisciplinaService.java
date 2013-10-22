@@ -1,13 +1,14 @@
-package br.cad.service.pessoa;
+package br.cad.service.academico;
 
-import br.cad.model.pessoa.Administrador;
+import br.cad.model.academico.Disciplina;
+import br.cad.service.Service;
 
 /**
  * 
  * @author WilliamRodrigues <br> {@link william.rodrigues@live.fae.edu}
- * 
+ *
  */
-public interface AdministradorService extends PessoaPapelService<Administrador> {
+public interface DisciplinaService extends Service<Disciplina> {
 
 	/*
 	 * *******************************************************************************************************************
